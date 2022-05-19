@@ -19,7 +19,12 @@
             <div class="card-body">
                 <div class="row rowDetailCard">
                     <div class="col-md-12 text-center">
-                        <img src="http://localhost:8092/api/v1/pokemon/retrieve-pokemon-image/{{ pokemon.image }}" alt="img_{{ pokemon.image }}" width="80%">
+                        <div *ngIf="pokemon.image; else elseBlock">
+                            <img src="http://localhost:8092/api/v1/pokemon/retrieve-pokemon-image/{{ pokemon.image }}" alt="img_{{ pokemon.image }}" width="80%">
+                        </div>
+                        <ng-template #elseBlock>
+                            <img src="./assets/images/pokebola.png" width="70%">
+                        </ng-template>
                     </div>
                 </div>
                 <div class="row rowDetailCard">
