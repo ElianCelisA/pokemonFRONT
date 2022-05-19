@@ -12,6 +12,7 @@ import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-deta
 import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { PokemonUploadComponent } from './components/pokemon-upload/pokemon-upload.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 const routes:Routes = [
@@ -32,7 +33,8 @@ const routes:Routes = [
     PokemonUpdateComponent,
     PokemonDetailComponent,
     NotfoundComponent,
-    PokemonUploadComponent
+    PokemonUploadComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
