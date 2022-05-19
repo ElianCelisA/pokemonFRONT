@@ -1,0 +1,73 @@
+<div class="row mb-4 text-center">
+    <div class="col-md-12">
+        <h1>{{ pokemon.name }}</h1>
+    </div>
+</div>
+<div class="row mb-4">
+    <div class="col-md-6 ">
+        <img src="http://localhost:8092/api/v1/pokemon/retrieve-pokemon-image/{{ pokemon.image }}" alt="img_{{ pokemon.image }}" width="90%">
+    </div>
+    <div class="col-md-6">
+        <div class="row mb-4 text-center">
+            <div class="col-md-12">
+                <p class="lead">{{ pokemon.description }}</p>
+            </div>
+        </div>
+        <div class="row mb-4 divInfoGeneral text-center">
+            <div class="col-md-4">
+                <h5><p>Altura</p> {{pokemon.height}} m</h5>
+            </div>
+            <div class="col-md-4">
+                <h5><p>Peso</p> {{pokemon.weight}} kg</h5>
+            </div>
+            <div class="col-md-4">
+                <h5><p>Categoría</p> {{pokemon.category}}</h5>
+            </div>
+        </div>
+        <div class="row mb-4 text-right">
+            <div class="col-md-12">
+                <h4>Tipo(s):</h4>
+            </div>
+        </div>
+        <div class="row mb-4 text-right">
+            <div class="col-md-12"> 
+                <span class="badge rounded-pill bg-warning text-dark fs-6 badgePokemon" *ngFor="let type of pokemon.type">{{ type.name }}</span>
+            </div>
+        </div>
+        <div class="row mb-4 text-right">
+            <div class="col-md-12">
+                <h4>Habilidad(es):</h4>
+            </div>
+        </div>
+        <div class="row mb-4 text-right">
+            <div class="col-md-12"> 
+                <span class="badge rounded-pill bg-success fs-6 badgePokemon" *ngFor="let ability of pokemon.abilities">{{ ability.name }}</span>
+            </div>
+        </div>
+        <div class="row mb-4 text-right">
+            <div class="col-md-12">
+                <h4>Debilidad(es):</h4>
+            </div>
+        </div>
+        <div class="row mb-4 text-right">
+            <div class="col-md-12"> 
+                <span class="badge rounded-pill bg-danger fs-6 badgePokemon" *ngFor="let weakness of pokemon.weaknesses">{{ weakness.name }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row mt-4 text-center">
+    <div class="col-md-3 mb-4">
+        <a [routerLink]="['/']" class="btn btn-dark">Regresar al listado</a>
+    </div>
+    <div class="col-md-3 mb-4">
+        <a [routerLink]="['/pokemon-update/'+pokemon.id]" class="btn btn-primary">Actualizar pokémon</a>
+    </div>
+    <div class="col-md-3 mb-4">
+        <a [routerLink]="['/pokemon-upload/'+pokemon.id]" class="btn btn-warning">Cambiar foto</a>
+    </div>
+    <div class="col-md-3 mb-4">
+        <a (click)="deletePokemon(pokemon.id)" class="btn btn-danger">Eliminar pokémon</a>
+    </div>
+</div>

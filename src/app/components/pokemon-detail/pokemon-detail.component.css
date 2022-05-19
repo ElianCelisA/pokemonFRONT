@@ -1,0 +1,9 @@
+.divInfoGeneral {
+    background-color: rgb(0, 255, 200);
+    padding: 30px 8px 30px 8px;
+    border-radius: 2em;
+}
+.badgePokemon {
+    margin: 0px 3.5px 3.5px 3.5px;
+    padding: 8px 15px 8px 15px;
+}

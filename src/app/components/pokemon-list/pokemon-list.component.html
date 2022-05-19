@@ -1,0 +1,51 @@
+<!--<button class="btn btn-success" (click)="pokemonList()">Mostrar contenido</button>-->
+<!--<div class="text-center title">
+    <h1>Pokémon</h1>
+</div>-->
+<div class="row text-center mb-4">
+    <div class="col-md-12">
+        <h1>Lista de pokemones</h1>
+    </div>
+</div>
+<div class="row mb-4 text-center">
+    <div class="col-md-12">
+        <a [routerLink]="['/pokemon-create']" class="btn btn-dark">Crear nuevo pokémon</a>
+    </div>
+</div>
+<br>
+<article class="row mt-4">
+    <div class="col-md-4" *ngFor="let pokemon of pokemones">
+        <div class="card cardPokemon" (click)="detailPokemon(pokemon.id)">
+            <div class="card-body">
+                <div class="row rowDetailCard">
+                    <div class="col-md-12 text-center">
+                        <img src="http://localhost:8092/api/v1/pokemon/retrieve-pokemon-image/{{ pokemon.image }}" alt="img_{{ pokemon.image }}" width="80%">
+                    </div>
+                </div>
+                <div class="row rowDetailCard">
+                    <div class="col-md-12">
+                        <h3>{{ pokemon.name }}</h3>
+                    </div>
+                </div>
+                <div class="row rowDetailCard">
+                    <div class="col-md-4">
+                        <h5>Tipo</h5> 
+                    </div>
+                    <div class="col-md-8">
+                        <span class="badge rounded-pill bg-primary fs-6 badgePokemon" *ngFor="let type of pokemon.type">{{ type.name }}</span>
+                    </div>
+                </div>
+                <div class="row rowDetailCard">
+                    <div class="col-md-4">
+                        <h5>Habilidad</h5> 
+                    </div>
+                    <div class="col-md-8">
+                        <span class="badge rounded-pill bg-success fs-6 badgePokemon" *ngFor="let ability of pokemon.abilities">{{ ability.name }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+

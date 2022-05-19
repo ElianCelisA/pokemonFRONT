@@ -1,0 +1,21 @@
+<div class="row mb-4 text-right">
+    <div class="col-md-12">
+        <a (click)="redirectDetalle()" class="btn btn-dark">Regresar al detalle</a>
+    </div>
+</div>
+<div class="row mb-4 text-center">
+    <div class="col-md-12">
+        <h1>Cambio de imagen</h1>
+    </div>
+</div>
+<br>
+<form  [formGroup]="formUpload"  enctype="multipart/form-data">
+    <div class="row mb-4 mt-4 text-center">
+        <div class="col-md-8">
+            <input class="form-control" type="file" id="formFile" (change)="handleFileInput($event)" formControlName="file" #fileInput>
+        </div>
+        <div class="col-md-4">
+            <button (click)="uploadFile()" class="btn btn-success">Subir imagen del pokémon</button>
+        </div>
+    </div>
+</form>
