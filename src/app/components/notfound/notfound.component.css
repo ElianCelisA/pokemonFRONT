@@ -1,0 +1,18 @@
+.divNotfound {
+    background-color: rgba(220, 219, 219, 0.775);
+    border-radius: 4em;
+    padding: 30px;
+}
+
+.divNotfound h1 {
+    margin-top: 15%;
+    font-size: 62px;
+}
+
+.divNotfound h3 {
+    font-size: 42px;
+}
+
+.divNotfound a {
+    font-size: 34px !important;
+}
