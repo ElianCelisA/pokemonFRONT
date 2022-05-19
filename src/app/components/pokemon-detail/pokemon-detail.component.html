@@ -5,7 +5,13 @@
 </div>
 <div class="row mb-4">
     <div class="col-md-6 ">
-        <img src="http://localhost:8092/api/v1/pokemon/retrieve-pokemon-image/{{ pokemon.image }}" alt="img_{{ pokemon.image }}" width="90%">
+        <div *ngIf="pokemon.image; else elseBlock">
+            <img src="http://localhost:8092/api/v1/pokemon/retrieve-pokemon-image/{{ pokemon.image }}" alt="img_{{ pokemon.image }}" width="90%">
+        </div>
+        <ng-template #elseBlock>
+            <img src="./assets/images/pokebola.png" width="70%">
+        </ng-template>
+        
     </div>
     <div class="col-md-6">
         <div class="row mb-4 text-center">
