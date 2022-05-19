@@ -1,0 +1,236 @@
+<div class="row mb-4 text-right">
+    <div class="col-md-12">
+        <a [routerLink]="['/']" class="btn btn-dark">Regresar al listado</a>
+    </div>
+</div>
+<div class="row text-center mb-4">
+    <div class="col-md-12">
+        <h1>Crear nuevo Pokémon</h1>
+    </div>
+</div>
+<form [formGroup]="formPokemon">
+    <div class="row text-right mb-4">
+        <div class="col-md-12">
+            <h4>Información general</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="FormControlInput1" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="FormControlInput1" formControlName="name">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="FormControlInput2" class="form-label">Categoría</label>
+                <input type="text" class="form-control" id="FormControlInput2" formControlName="category">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="FormControlInput3" class="form-label">Altura (m)</label>
+                <input type="number" class="form-control" id="FormControlInput3" formControlName="height">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="FormControlInput4" class="form-label">Peso (Kg)</label>
+                <input type="number" class="form-control" id="FormControlInput4" formControlName="weight">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4 mb-4">
+        <div class="col-md-12">
+            <h4>Información de clasificación</h4>
+        </div>
+    </div>
+    <div class="row mt-4 mb-4">
+        <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+                Antes de guardar el registro del pokémon, recuerda adicionar y verificar cada uno de los tipos, habilidades y debilidades
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <h5>Tipo(s)</h5>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <label for="exampleFormControlInput5" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput5" formControlName="type">
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <label for="exampleFormControlTextarea2" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="descriptionType"></textarea>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <button class="btn btn-info" (click)="addType()">Agregar tipo</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <h5>Habilidad(es)</h5>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <label for="exampleFormControlInput6" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput6" formControlName="ability">
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <label for="exampleFormControlTextarea3" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea3" rows="3" formControlName="descriptionAbility"></textarea>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <button class="btn btn-info" (click)="addAbility()">Agregar habilidad</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <h5>Debilidades(es)</h5>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <label for="exampleFormControlInput7" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput7" formControlName="weakness">
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <label for="exampleFormControlTextarea4" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea4" rows="3" formControlName="descriptionWeakness"></textarea>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <button class="btn btn-info" (click)="addWeakness()">Agregar debilidad</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row text-right mb-4" *ngIf="listWeaknesses.length > 0 || listAbilities.length > 0 || listTypes.length > 0">
+        <div class="col-md-12" >
+            <h4>Verificación de clasificación</h4>
+        </div>
+    </div>
+    <div *ngIf="listTypes.length > 0">
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <h5>Tipo(s)</h5>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <table class="table table-border table-hover table-bordered text-center">
+                    <thead class="bg-dark text-light">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Acción</th>    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let t of listTypes; let i = index">
+                            <td>{{ t.name }}</td>
+                            <td>{{ t.description}}</td>
+                            <td>
+                                <button class="btn btn-danger" (click)="deleteType(i)">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="listAbilities.length > 0">
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <h5>Habilidad(es)</h5>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <table class="table table-border table-hover table-bordered text-center">
+                    <thead class="bg-dark text-light">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Acción</th>    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let a of listAbilities; let i = index">
+                            <td>{{ a.name }}</td>
+                            <td>{{ a.description}}</td>
+                            <td>
+                                <button class="btn btn-danger" (click)="deleteAbility(i)">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="listWeaknesses.length > 0">
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <h5>Debilidad(es)</h5>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <table class="table table-border table-hover table-bordered text-center">
+                    <thead class="bg-dark text-light">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Acción</th>    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let d of listWeaknesses; let i = index">
+                            <td>{{ d.name }}</td>
+                            <td>{{ d.description}}</td>
+                            <td>
+                                <button class="btn btn-danger" (click)="deleteWeakness(i)">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center mt-4 mb-4">
+        <div class="col-md-12">
+            <button class="btn btn-success" (click)="create()">Guardar Pokémon</button>
+        </div>
+    </div>
+</form>

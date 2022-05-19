@@ -1,0 +1,23 @@
+.cardPokemon {
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border: solid 3px rgb(196, 195, 195);
+}
+
+.cardPokemon:hover{
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+.cardPokemon {
+    margin-bottom: 30px !important;
+    padding: 10px;
+}
+
+.rowDetailCard {
+    margin-bottom: 10px;
+}
+
+.badgePokemon {
+    margin: 0px 3.5px 3.5px 3.5px;
+    padding: 8px 15px 8px 15px;
+}
